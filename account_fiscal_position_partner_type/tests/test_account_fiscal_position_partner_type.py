@@ -27,7 +27,7 @@ class TestAccountFiscalPositionPartnerType(common.TransactionCase):
         cls.company_main = cls.env.ref("base.main_company")
         cls.company_main.default_fiscal_position_type = "b2b"
         # Fiscal Positions
-        cls.fiscal_position_model.search([]).unlink()
+        cls.fiscal_position_model.search([]).write({"active": False})
         cls.fiscal_position_test = cls.fiscal_position_model.create(
             {
                 "name": "Test",
